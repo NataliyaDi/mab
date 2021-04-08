@@ -24,22 +24,29 @@ class MAB:
         return [i for i in self.arms_dict_params if self.arms_dict_params.get(i).get('is_active')]
 
 
-    def add_arms(self):
+    def add_arms(self, arm_name=None):
         """
         Add new strategy
+        
+        :param arm_name: name of the arm 
         :return:
         """
+        if arm_name:
+            new_arm = arm_name
+        else:
+            new_arm = str(self.n_arms + 1)
+            
         print(f'Current number of active arms is {self.number_active_strategies}')
-        self.arms_dict_params.update({str(self.n_arms + 1): {'description': '',
-                                                              'current_alpha': 1,
-                                                              'current_beta': 1,
-                                                              'success': [0],
-                                                              'trials': [0],
-                                                              'probability': [],
-                                                              'is_active': 1,
-                                                              'params_weight': None,
-                                                              'is_filled': False
-                                                               }
+        self.arms_dict_params.update({new_arm: {'description': '',
+                                              'current_alpha': 1,
+                                              'current_beta': 1,
+                                              'success': [0],
+                                              'trials': [0],
+                                              'probability': [],
+                                              'is_active': 1,
+                                              'params_weight': None,
+                                              'is_filled': False
+                                               }
                                       })
         print(f'Now number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params
@@ -124,16 +131,16 @@ class MAB:
 
         return self.arms_dict_params, self.arms_probability
 
-    def remove_arm(self, arm):
+    def remove_arm(self, arm_name):
         """
         Remove strategy
 
-        :param arm: Strategy id
+        :param arm_name: Strategy id
         :return: number of active strategies
         """
         print(f'Current number of active arms is {self.number_active_strategies}')
-        self.active_arms.remove(arm)
-        self.arms_dict_params[arm]['is_active'] = 0
+        self.active_arms.remove(arm_name)
+        self.arms_dict_params[arm_name]['is_active'] = 0
         print(f'Now number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params, self.number_active_strategies
 
