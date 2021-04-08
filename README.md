@@ -8,4 +8,4 @@ I use Beta distribution to sample probability for each arm. We initialize params
 
 In [mab.py](https://github.com/NataliyaDi/mab/blob/main/mab.py) the  realisation of this approach can be found. We can add descriptions for arm, add/remove arms, get reward, update distribution etc.
 
-Examples of using mab.py are in [how_to_use_mab.ipynb](https://github.com/NataliyaDi/mab/blob/main/how_to_use_mab.ipynb). 
+Examples of using mab.py are in [how_to_use_mab.ipynb](https://nbviewer.jupyter.org/github/NataliyaDi/mab/blob/main/how_to_use_mab.ipynb). 
