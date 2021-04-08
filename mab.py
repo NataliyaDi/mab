@@ -44,7 +44,7 @@ class MAB:
         print(f'Now number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params
 
-    def results_from_db(self, gp_conn):
+    def results_from_db(self, gp_conn=None):
         """
         tmp method for loading rewards from DB
 
@@ -94,7 +94,7 @@ class MAB:
 
         return self.arms_dict_params
 
-    def update_distr_and_return_proba(self, gp_conn):
+    def update_distr_and_return_proba(self, gp_conn=None):
         """
         Updating params of Beta distribution according the rewards. Alpha incresed by positive reward, beta - by non-positive.
         :param gp_conn: DB connection
