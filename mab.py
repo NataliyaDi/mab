@@ -48,7 +48,7 @@ class MAB:
                                               'is_filled': False
                                                }
                                       })
-        print(f'Now number of active arms is {self.number_active_strategies}')
+        print(f'Now the number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params
 
     def results_from_db(self, gp_conn=None):
@@ -141,7 +141,7 @@ class MAB:
         print(f'Current number of active arms is {self.number_active_strategies}')
         self.active_arms.remove(arm_name)
         self.arms_dict_params[arm_name]['is_active'] = 0
-        print(f'Now number of active arms is {self.number_active_strategies}')
+        print(f'Now the number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params, self.number_active_strategies
 
     @property
@@ -175,7 +175,8 @@ class MAB:
         :param arm: strategy id to turn on
         :return:
         """
-        print(self.number_active_strategies)
+        print(f'Current number of active arms is {self.number_active_strategies}')
         self.arms_dict_params[arm]['is_active'] = 1
+        print(f'Now the number of active arms is {self.number_active_strategies}')
 
         return self.arms_dict_params, self.number_active_strategies
