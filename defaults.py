@@ -1,1 +1,1 @@
-N_ARMS = 5
+N_ARMS = 3
