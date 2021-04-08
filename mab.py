@@ -72,13 +72,14 @@ class MAB:
 
         return self.arms_dict_params, self.arms_probability
 
-    def update_distribution(self):
+    def update_distribution(self, gp_conn=None):
         """
         Updating params of Beta distribution according the rewards. Alpha incresed by positive reward, beta - by non-positive.
-
+        
+        :param gp_conn: DB connection
         :return: updated dict with strategies
         """
-        results = self.results_from_db()
+        results = self.results_from_db(gp_conn)
 
         for i in self.active_arms:
             try:
@@ -97,6 +98,7 @@ class MAB:
     def update_distr_and_return_proba(self, gp_conn=None):
         """
         Updating params of Beta distribution according the rewards. Alpha incresed by positive reward, beta - by non-positive.
+        
         :param gp_conn: DB connection
         :return: updated dict with strategies, probabilities for strategies
         """        
