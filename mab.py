@@ -29,7 +29,7 @@ class MAB:
         Add new strategy
         :return:
         """
-        print(self.number_active_strategies)
+        print(f'Current number of active arms is {self.number_active_strategies}')
         self.arms_dict_params.update({str(self.n_arms + 1): {'description': '',
                                                               'current_alpha': 1,
                                                               'current_beta': 1,
@@ -41,6 +41,7 @@ class MAB:
                                                               'is_filled': False
                                                                }
                                       })
+        print(f'Now number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params
 
     def results_from_db(self, gp_conn):
@@ -128,10 +129,10 @@ class MAB:
         :param arm: Strategy id
         :return: number of active strategies
         """
-        print(self.number_active_strategies)
+        print(f'Current number of active arms is {self.number_active_strategies}')
         self.active_arms.remove(arm)
         self.arms_dict_params[arm]['is_active'] = 0
-
+        print(f'Now number of active arms is {self.number_active_strategies}')
         return self.arms_dict_params, self.number_active_strategies
 
     @property
